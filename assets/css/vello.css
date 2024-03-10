@@ -1,0 +1,77 @@
+/* Optimized for readability and maintainability */
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  
+  gap: 1rem;
+  background-color: #418a8d;  /* Light background */
+}
+
+.board-wrapper {
+  padding: 2rem;
+  height: calc(100vh - 8rem);  
+  overflow-y: auto;
+}
+
+.column {
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);  
+  background-color: #ffffffa9;  
+  transition: background-color 0.2s ease-in-out;  
+}
+
+.column:hover {
+  background-color: #f8f8f800;  
+}
+
+.column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(220, 220, 220, 0.5);  /* Light separator line */
+  cursor: pointer;  /* Enable hover effect for potential expand/collapse */
+}
+
+.column-header:hover {
+  animation: pulse 0.5s ease-in-out infinite alternate;  /* Pulsating hover effect */
+}
+
+@keyframes pulse {
+  from { opacity: 1; }
+  to { opacity: 0.9; }
+}
+
+.task-list {
+  margin-top: 1rem;  /* Spacing between header and tasks */
+}
+
+.task-wrapper {
+  background-color: #f0f0f0;  /* Light gray task background */
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);  /* Slight separation */
+  margin-bottom: 0.5rem;  /* Spacing between tasks */
+  cursor: grab;  /* Visual cue for drag-and-drop */
+  transition: transform 0.2s ease-in-out;  /* Smooth movement on drag */
+}
+
+.task-wrapper:active {
+  transform: scale(1.02);  /* Slight scale on drag for feedback */
+  opacity: 0.8;  /* Slight opacity change on drag for feedback */
+}
+
+.add-task-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 1.2rem;  /* Adjust font size as needed */
+  color: #333;  /* Darker text color for button */
+  cursor: pointer;  /* Visual cue for clickable button */
+  transition: color 0.2s ease-in-out;  /* Smooth color change on hover */
+}
+
+.add-task-btn:hover {
+  color: #66666600;  /* Darker shade on hover for button */
+}
